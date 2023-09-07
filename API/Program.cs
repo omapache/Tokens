@@ -11,7 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureCors();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddAplicacionServices();
+builder.Services.AddJwt(builder.Configuration);
 builder.Services.AddDbContext<DbApiContext>(options =>
 {
     string connectionString = builder.Configuration.GetConnectionString("ConexMysql");
@@ -29,6 +31,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseAuthentication(); //ESTO VA CON JWT
 
 app.MapControllers();
 
