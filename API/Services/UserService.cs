@@ -15,12 +15,13 @@ namespace API.Services;
         private readonly JWT _jwt;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IPasswordHasher<User> _passwordHasher;
-        public UserService(IUnitOfWork unitOfWork, IOptions<JWT> jwt, IPasswordHasher<User> passwordHasher)
+       public UserService(IUnitOfWork unitOfWork, IOptions<JWT> jwt, IPasswordHasher<User> passwordHasher)
         {
             _jwt = jwt.Value;
             _unitOfWork = unitOfWork;
             _passwordHasher = passwordHasher;
         }
+
         public async Task<string> RegisterAsync(RegisterDto registerDto)
         {
             var User = new User
@@ -126,7 +127,7 @@ namespace API.Services;
                     datosUserDto.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
                     datosUserDto.UserName = User.Username;
                     datosUserDto.Email = User.Email;
-                    datosUserDto.Roles = User.Rols
+                    datosUserDto.Rols = User.Rols
                                                         .Select(p => p.Nombre)
                                                         .ToList();
 
@@ -158,7 +159,7 @@ namespace API.Services;
             var roleClaims = new List<Claim>();
             foreach (var role in Rols)
             {
-                roleClaims.Add(new Claim("Rols", role.Nombre));
+                roleClaims.Add(new Claim("roles", role.Nombre));
             }
 
             var claims = new[]
@@ -176,7 +177,7 @@ namespace API.Services;
 
             var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
 
-            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
+            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha512Signature);
 
             var JwtSecurityToken = new JwtSecurityToken(
                 issuer: _jwt.Issuer,

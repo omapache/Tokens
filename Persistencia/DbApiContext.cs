@@ -10,7 +10,7 @@ namespace Persistencia
 {
     public class DbApiContext : DbContext
         {
-            public DbApiContext(DbContextOptions<DbApiContext> options) : base(options)
+            public DbApiContext(DbContextOptions options) : base(options)
             {}
             public DbSet<User> Users { get; set; }
             public DbSet<Rol> Rols { get; set; }

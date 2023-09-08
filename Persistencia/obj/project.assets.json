@@ -5221,11 +5221,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\Persistencia.csproj",
+      "projectUniqueName": "C:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\Persistencia.csproj",
       "projectName": "Persistencia",
-      "projectPath": "c:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\Persistencia.csproj",
+      "projectPath": "C:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\Persistencia.csproj",
       "packagesPath": "C:\\Users\\APT01-041\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\obj\\",
+      "outputPath": "C:\\Users\\APT01-041\\Desktop\\C\\Proyecto\\Persistencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\APT01-041\\AppData\\Roaming\\NuGet\\NuGet.Config"
